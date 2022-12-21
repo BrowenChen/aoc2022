@@ -7,7 +7,7 @@ import heapq
 
 INPUT_TXT = os.path.join(os.path.dirname(__file__), 'input.txt')
 
-def result(s: str, n: int) -> int:
+def execute(s: str, n: int) -> int:
     elf_calories: List = []
     for elf in s.split('\n\n'):
         heapq.heappush(elf_calories, sum(int(line) for line in elf.splitlines()))
@@ -19,7 +19,7 @@ def main() -> int:
     parser.add_argument('--number', help='Number of elves')
     args = parser.parse_args()
     with open(INPUT_TXT) as f:
-        print(result(f.read(), int(args.number)))
+        print(execute(f.read(), int(args.number)))
     return 0
 
 if __name__ == '__main__':
